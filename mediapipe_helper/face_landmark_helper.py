@@ -106,7 +106,7 @@ class FaceLandmarkProcessor:
         '''
         
         # Elements to remove
-        center_lmk_lst = self.lmk_template_dict['FACEMESH_CENTER']
+        center_lmk_lst = self.lmk_template_dict['FACE_CENTER']
 
         if isinstance(input_lmk, str):
             try:
@@ -143,7 +143,7 @@ class FaceLandmarkProcessor:
                 it returns the input unchanged.
         '''
         # Elements to remove
-        center_lmk_lst = self.lmk_template_dict['FACEMESH_CENTER']
+        center_lmk_lst = self.lmk_template_dict['FACE_CENTER']
             
         if isinstance(input_lmk_lst, list):
             # Iterate over the indices and elements of the list
@@ -182,7 +182,7 @@ class FaceLandmarkProcessor:
 
             
     # Function to plot lines and points
-    def plot_2d_landmarks(self, image_tmp: np.ndarray, lmk_lst: List[int] = list(range(468)), color: Tuple[int, int, int] = (0, 255, 0), coloful_option: bool = False, draw_symmetrical_landmarks: bool = False) -> np.ndarray:
+    def plot_landmarks(self, image_tmp: np.ndarray, lmk_lst: List[int] = list(range(468)), color: Tuple[int, int, int] = (0, 255, 0), coloful_option: bool = False, draw_symmetrical_landmarks: bool = False) -> np.ndarray:
         '''
         Plots lines and points on the input image based on the provided face landmark indices.
 
@@ -224,5 +224,29 @@ class FaceLandmarkProcessor:
                 
                 # Draw points
                 cv2.circle(image_copy, face_lmks_invert, 1, color, -1)
+        img_rgb = cv2.cvtColor(image_copy, cv2.COLOR_BGR2RGB)
+        return img_rgb
 
-        return image_copy
+    def mesh_template(self, input_key: str = 'ALL') -> Union[str, List[str]]:
+        '''
+        Retrieves the template list or a specific template based on the input key.
+
+        Parameters:
+            input_key (str, optional): The key of the template to retrieve. 
+                Defaults to 'ALL', which retrieves the entire template list.
+
+        Returns:
+            Union[str, List[str]]: The template list or the specific template corresponding to the input key.
+                Returns a list if input_key is 'ALL', otherwise returns a string.
+        '''
+        if input_key == 'ALL':
+            template_lst = list(self.lmk_template_dict.keys())
+            return f"""This is Template List, {template_lst} Usage examples: mesh_template('FACE_LIPS')"""
+        
+        else:
+            answer = self.lmk_template_dict.get(input_key)
+            if answer:
+                return answer
+            else:
+                return f"""{input_key} does not exist, please open an issue to request it be added. 'https://github.com/LearningnRunning/py_face_landmark_helper/issues'"""
+    
