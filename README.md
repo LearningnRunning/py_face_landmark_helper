@@ -28,7 +28,7 @@ face_mesh_processor = face_landmark_helper.FaceLandmarkProcessor()
 ```
 
 ## convert_landmark
- Image Path or Image Object, whatever you want.
+ Image Path or Image Object, whatever you want.<br/>
 
 - face_landmarks is a list of 468 landmarks extracted from the facial image. Each landmark is represented as a tuple containing the x and y coordinates in pixels.
 
@@ -118,15 +118,16 @@ lmd_mark = face_mesh_processor.mesh_template('FACE_LIPS')
 plot_img = face_mesh_processor.plot_landmarks(img_path, lmk_lst=lmd_mark)
 # OUTPUT: array([[[165, 173, 167],[164, 174, 167],[165, 174, 167)
 ```
+plot_img
 ![plot_img](https://velog.velcdn.com/images/sungrok7/post/5a3a5b69-5705-4ab6-bf29-2317761f3263/image.png)
 
 ### plot_landmarks's Parameters
-Parameters:
-    image_tmp (np.ndarray): The input image on which to plot the landmarks. It should be a NumPy array representing the image.
-    lmk_lst (List[int], optional): A list of face landmark indices to plot. Defaults to list(range(468)).
-    color (Tuple[int, int, int], optional): The color to use for plotting lines and points. Defaults to (0, 255, 0) (green).
-    coloful_option (bool, optional): A boolean flag indicating whether to use random colors for plotting lines and points. Defaults to False.
-    draw_symmetrical_landmarks (bool, optional): A boolean flag indicating whether to draw symmetrical landmarks. Defaults to False.
+Parameters:<br/>
+    image_tmp (np.ndarray): The input image on which to plot the landmarks. It should be a NumPy array representing the image.<br/>
+    lmk_lst (List[int], optional): A list of face landmark indices to plot. Defaults to list(range(468)).<br/>
+    color (Tuple[int, int, int], optional): The color to use for plotting lines and points. Defaults to (0, 255, 0) (green).<br/>
+    coloful_option (bool, optional): A boolean flag indicating whether to use random colors for plotting lines and points. Defaults to False.<br/>
+    draw_symmetrical_landmarks (bool, optional): A boolean flag indicating whether to draw symmetrical landmarks. Defaults to False.<br/>
 
 ```python
 user_color = (122, 143, 12)
@@ -134,8 +135,9 @@ plot_img_user_color = face_mesh_processor.plot_landmarks(img_path, lmk_lst=lmd_m
 
 plot_img_colorful_sym = face_mesh_processor.plot_landmarks(img_path, lmk_lst=lmd_mark, coloful_option=True, draw_symmetrical_landmarks=True)
 ```
-
+plot_img_user_color
 ![plot_img_user_color](https://velog.velcdn.com/images/sungrok7/post/92446ddb-642b-43b5-b48f-64a3aaf65a42/image.png)
+plot_img_colorful_sym
 ![plot_img_colorful_sym](https://velog.velcdn.com/images/sungrok7/post/82cd4fcd-3754-4522-ab54-33474a4795c2/image.png)
 
 ## Display the image
