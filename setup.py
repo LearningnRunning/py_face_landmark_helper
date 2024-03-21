@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 from setuptools import setup, find_packages
-from navertrans.__init__ import __version__
+from mediapipe_helper.__init__ import __version__
 
 required=[]
 with open('requirements.txt') as f:
@@ -12,7 +12,7 @@ with open('requirements.txt') as f:
 with open('README.md', encoding='utf-8') as f:
     long_description = f.read()     
 setup(
-    name='face_landmark_helper',
+    name='mediapipe_helper',
     version= __version__,
     description= 'A package to help you utilise landmarks in the face_landmark feature of google open source mediapipe.',
     long_description = long_description,
@@ -24,7 +24,7 @@ setup(
         'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Education',
         'Intended Audience :: End Users/Desktop',
-        'License :: OSI Approved :: GNU General Public License v2 (GPLv2)',
+        'License :: OSI Approved :: Apache Software License',
         'Operating System :: POSIX',
         'Operating System :: Microsoft :: Windows',
         'Operating System :: MacOS :: MacOS X',
@@ -50,19 +50,19 @@ def install():
 
         
     setup(
-        name='navertrans',
+        name='mediapipe_helper',
         version= __version__,
-        description= 'Thanks for NAVER',
-        long_description = open('README.md').read(),
+        description= 'A package to help you utilise landmarks in the face_landmark feature of google open source mediapipe.',
+        long_description = long_description,
         long_description_content_type='text/markdown',
         author='learningnRunning',
         author_email='max_sungrok@naver.com',
-        url='https://github.com/LearningnRunning/NaverTrans.git',
+        url='https://github.com/LearningnRunning/py_face_landmark_helper',
         classifiers=[
             'Development Status :: 5 - Production/Stable',
             'Intended Audience :: Education',
             'Intended Audience :: End Users/Desktop',
-            'License :: OSI Approved :: GNU General Public License v2 (GPLv2)',
+            'License :: OSI Approved :: Apache Software License',
             'Operating System :: POSIX',
             'Operating System :: Microsoft :: Windows',
             'Operating System :: MacOS :: MacOS X',
